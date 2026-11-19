@@ -702,7 +702,7 @@ export function mount(container, services) {
       priority: 'normal',
       notes: '',
     };
-    const titleId = `${uid}-if-title`;
+    const titleId = `${uid}-if-heading`;
     const listId = `${uid}-if-subjects`;
     const subjects = [...new Set(state.lessons.map((l) => l.subject))].sort((a, b) =>
       a.localeCompare(b, 'pt-BR')
