@@ -8,7 +8,7 @@
    - Para publicar uma nova versão: AUMENTE o número em CACHE_VERSION.
    ========================================================= */
 
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v2';
 const CACHE_NAME = `meuestudo-${CACHE_VERSION}`;
 
 const PRECACHE = [

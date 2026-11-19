@@ -26,16 +26,16 @@ meuestudo/
 │   ├── layout.css              [Eduardo Fernandes]  cabeçalho, nav, painel
 │   └── modules/
 │       ├── horarios-agenda.css [Eduardo Levy]       prefixos .schedule- e .agenda-
-│       ├── notas.css           [Eduardo Fernandes]          prefixo .grade-
-│       └── foco.css            [Eduardo Fernandes]    prefixo .focus-
+│       ├── notas.css           [Kauê Iury]          prefixo .grade-
+│       └── foco.css            [Marcelo Augusto]    prefixo .focus-
 └── js/
     ├── app.js                  [Eduardo Fernandes]
     ├── storage.js              [Eduardo Fernandes]
     ├── ui.js                   [Eduardo Fernandes]
     └── modules/
         ├── horarios-agenda.js  [Eduardo Levy]
-        ├── notas.js            [Eduardo Fernandes]
-        └── foco.js             [Eduardo Fernandes]
+        ├── notas.js            [Kauê Iury]
+        └── foco.js             [Marcelo Augusto]
 ```
 
 Estrutura e donos seguem o **Contrato Técnico Compartilhado v0.3** (`00_Contrato_...md`), que prevalece em caso de dúvida. Cada arquivo tem **um único dono**. Não edite arquivos de outro dono sem combinar. Os três CSS de módulo existem só como placeholder (comentário): substitua o conteúdo pelo seu.
@@ -114,3 +114,11 @@ export function mount(container, services) {
 
 Qualquer hospedagem estática serve (GitHub Pages, Netlify, Cloudflare Pages). Todos os caminhos são **relativos**, então funciona também em subpasta (`usuario.github.io/meuestudo/`). Raiz do site = pasta `meuestudo/`.
 
+**A cada novo deploy:** aumente `CACHE_VERSION` em `sw.js` (`'v1'` → `'v2'`...). Sem isso, quem já abriu o app pode continuar vendo arquivos antigos do cache.
+
+## Limitações conhecidas
+
+- Dados locais ao navegador e ao aparelho: não sincronizam; limpar dados do site ou usar aba privada pode apagá-los.
+- Offline: a primeira visita precisa de internet. Depois, a estrutura abre sem rede.
+- Timer em segundo plano pode ser limitado pelo navegador; não prometer alarme com o app fechado.
+- Instalação como app não foi testada em aparelhos reais (ver `docs/DOCUMENTACAO_FRENTE_01.md`).

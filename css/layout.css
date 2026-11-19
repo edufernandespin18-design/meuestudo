@@ -1,0 +1,96 @@
+/* =========================================================
+   MeuEstudo — layout.css
+   Cabeçalho, área principal, navegação inferior e painel inicial.
+   Mobile-first (referência: 320 CSS px).
+   ========================================================= */
+
+.app-header {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--me-surface);
+  border-bottom: 1px solid var(--me-border);
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.app-header__inner {
+  max-width: var(--me-max-w); margin: 0 auto;
+  min-height: var(--me-header-h);
+  padding: 0 var(--me-s-4);
+  display: flex; align-items: center; justify-content: space-between; gap: var(--me-s-3);
+}
+.app-header__brand { display: inline-flex; align-items: center; gap: var(--me-s-2); }
+.app-header__logo { border-radius: 7px; display: block; }
+.app-header__name { font-weight: 800; font-size: var(--me-fs-lg); color: var(--me-primary-strong); }
+
+.app-main {
+  max-width: var(--me-max-w);
+  margin: 0 auto;
+  padding: var(--me-s-4);
+  padding-bottom: calc(var(--me-nav-h) + env(safe-area-inset-bottom, 0px) + var(--me-s-5));
+  min-height: calc(100dvh - var(--me-header-h));
+}
+
+/* ---------- Navegação inferior ---------- */
+.bottom-nav {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+  background: var(--me-surface);
+  border-top: 1px solid var(--me-border);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.bottom-nav__list {
+  list-style: none;
+  max-width: var(--me-max-w); margin: 0 auto;
+  height: var(--me-nav-h);
+  display: grid; grid-template-columns: repeat(5, 1fr);
+}
+.bottom-nav__link {
+  height: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  color: var(--me-text-muted); text-decoration: none;
+  font-size: var(--me-fs-xs); font-weight: 600;
+  border-top: 3px solid transparent;
+}
+.bottom-nav__link svg {
+  width: 24px; height: 24px;
+  fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+}
+.bottom-nav__link:hover { background: var(--me-surface-2); }
+.bottom-nav__link[aria-current="page"] {
+  color: var(--me-primary-strong);
+  border-top-color: var(--me-primary);
+  background: var(--me-primary-soft);
+}
+
+/* ---------- Painel inicial ---------- */
+.home__greeting { margin-bottom: var(--me-s-1); }
+.home__date { color: var(--me-text-muted); margin-bottom: var(--me-s-4); }
+
+.home__time {
+  font-variant-numeric: tabular-nums; font-weight: 700;
+  min-width: 5.5rem; color: var(--me-primary-strong);
+  white-space: nowrap;
+}
+.list__item .home__time { flex: none; }
+.home__section-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: var(--me-s-3);
+  margin-bottom: var(--me-s-3);
+}
+.home__section-head h2 { margin: 0; }
+
+.shortcuts { display: grid; grid-template-columns: 1fr 1fr; gap: var(--me-s-3); list-style: none; }
+.shortcuts a {
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  min-height: 56px; padding: var(--me-s-3);
+  font-weight: 700; text-decoration: none;
+  color: var(--me-primary-strong);
+  background: var(--me-primary-soft);
+  border-radius: var(--me-radius-sm);
+}
+.shortcuts a:hover { background: #c3e7e1; }
+
+.home__help p, .home__help li { font-size: var(--me-fs-sm); }
+.home__help ol, .home__help ul { padding-left: var(--me-s-5); margin-bottom: var(--me-s-3); }
+
+/* Telas maiores: mesma estrutura, mais respiro */
+@media (min-width: 640px) {
+  .app-main { padding: var(--me-s-5); padding-bottom: calc(var(--me-nav-h) + var(--me-s-6)); }
+  .shortcuts { grid-template-columns: repeat(4, 1fr); }
+}
