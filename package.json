@@ -1,0 +1,6 @@
+{
+  "name": "meuestudo",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node tests/shell.test.mjs" }
+}
